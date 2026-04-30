@@ -1,7 +1,5 @@
-﻿#if defined(WIN32)
-//#  pragma comment(linker, "/subsystem:\"windows\" /entry:\"mainCRTStartup\"")
-#  include "glut.h"
-#elif defined(__APPLE__) || defined(MACOSX)
+﻿#if defined(__APPLE__) || defined(MACOSX)
+#  define GL_SILENCE_DEPRECATION
 #  include <GLUT/glut.h>
 #else
 #  include <GL/glut.h>
@@ -16,24 +14,24 @@ void box(double x, double y, double z)
 {
   /* 頂点の座標値 */
   const GLdouble vertex[][4][3] = {
-    {{ -x, -y, -z }, {  x, -y, -z }, {  x, -y,  z }, { -x, -y,  z }},
-    {{ -x, -y, -z }, { -x,  y, -z }, {  x,  y, -z }, {  x, -y, -z }},
-    {{  x, -y, -z }, {  x,  y, -z }, {  x,  y,  z }, {  x, -y,  z }},
-    {{  x, -y,  z }, {  x,  y,  z }, { -x,  y,  z }, { -x, -y,  z }},
-    {{ -x, -y,  z }, { -x,  y,  z }, { -x,  y, -z }, { -x, -y, -z }},
-    {{ -x,  y,  z }, {  x,  y,  z }, {  x,  y, -z }, { -x,  y, -z }},
+    { { -x, -y, -z }, {  x, -y, -z }, {  x, -y,  z }, { -x, -y,  z } },
+    { { -x, -y, -z }, { -x,  y, -z }, {  x,  y, -z }, {  x, -y, -z } },
+    { {  x, -y, -z }, {  x,  y, -z }, {  x,  y,  z }, {  x, -y,  z } },
+    { {  x, -y,  z }, {  x,  y,  z }, { -x,  y,  z }, { -x, -y,  z } },
+    { { -x, -y,  z }, { -x,  y,  z }, { -x,  y, -z }, { -x, -y, -z } },
+    { { -x,  y,  z }, {  x,  y,  z }, {  x,  y, -z }, { -x,  y, -z } },
   };
-  
+
   /* 頂点のテクスチャ座標 */
   static const GLdouble texcoord[][4][2] = {
-    {{ 0.0, 0.0 }, { 0.0, 1.0 }, { 1.0, 1.0 }, { 1.0, 0.0 }},
-    {{ 0.0, 0.0 }, { 0.0, 1.0 }, { 1.0, 1.0 }, { 1.0, 0.0 }},
-    {{ 0.0, 0.0 }, { 0.0, 1.0 }, { 1.0, 1.0 }, { 1.0, 0.0 }},
-    {{ 0.0, 0.0 }, { 0.0, 1.0 }, { 1.0, 1.0 }, { 1.0, 0.0 }},
-    {{ 0.0, 0.0 }, { 0.0, 1.0 }, { 1.0, 1.0 }, { 1.0, 0.0 }},
-    {{ 0.0, 0.0 }, { 0.0, 1.0 }, { 1.0, 1.0 }, { 1.0, 0.0 }},
+    { { 0.0, 0.0 }, { 0.0, 2.0 }, { 2.0, 2.0 }, { 2.0, 0.0 } },
+    { { 0.0, 0.0 }, { 0.0, 2.0 }, { 2.0, 2.0 }, { 2.0, 0.0 } },
+    { { 0.0, 0.0 }, { 0.0, 2.0 }, { 2.0, 2.0 }, { 2.0, 0.0 } },
+    { { 0.0, 0.0 }, { 0.0, 2.0 }, { 2.0, 2.0 }, { 2.0, 0.0 } },
+    { { 0.0, 0.0 }, { 0.0, 2.0 }, { 2.0, 2.0 }, { 2.0, 0.0 } },
+    { { 0.0, 0.0 }, { 0.0, 2.0 }, { 2.0, 2.0 }, { 2.0, 0.0 } },
   };
-  
+
   /* 面の法線ベクトル */
   static const GLdouble normal[][3] = {
     {  0.0, -1.0,  0.0 },
@@ -43,9 +41,9 @@ void box(double x, double y, double z)
     { -1.0,  0.0,  0.0 },
     {  0.0,  1.0,  0.0 },
   };
-  
+
   int i, j;
-  
+
   /* 四角形６枚で箱を描く */
   glBegin(GL_QUADS);
   for (j = 0; j < 6; ++j) {
@@ -53,7 +51,7 @@ void box(double x, double y, double z)
     for (i = 0; i < 4; ++i) {
 #if 0
       /* テクスチャ座標の指定 */
-      glTexCoord2dv(texcoord[j][i]);
+      glTexCoord3dv(vertex[j][i]);
 #endif
       /* 対応する頂点座標の指定 */
       glVertex3dv(vertex[j][i]);
