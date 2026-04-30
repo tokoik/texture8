@@ -3,10 +3,13 @@
 #  include <GLUT/glut.h>
 #  include <OpenGL/glext.h>
 #else
+#  if defined(_WIN32)
+#    define _USE_MATH_DEFINES
+#    define _CRT_SECURE_NO_WARNINGS
+#  endif
 #  include <GL/glut.h>
 #  include <GL/glext.h>
 #  if defined(_WIN32)
-#    define _CRT_SECURE_NO_WARNINGS
 #    if !defined(GL_CLAMP_TO_EDGE)
 #      define GL_CLAMP_TO_EDGE 0x812F
 #    endif
