@@ -79,8 +79,14 @@ static void init(void)
   glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP);
   glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP);
 
+#if 0
   /* テクスチャ環境 */
   glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+
+  /* 混合する色の設定 */
+  static const GLfloat blend[] = { 0.0, 1.0, 0.0, 1.0 };
+  glTexEnvfv(GL_TEXTURE_ENV, GL_TEXTURE_ENV_COLOR, blend);
+#endif
 
   /* キューブマッピング用のテクスチャ座標を生成する */
   glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_REFLECTION_MAP);
