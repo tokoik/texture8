@@ -15,10 +15,10 @@ void box(double x, double y, double z)
   /* 頂点の座標値 */
   const GLdouble vertex[][4][3] = {
     { { -x, -y, -z }, {  x, -y, -z }, {  x, -y,  z }, { -x, -y,  z } },
-    { { -x, -y, -z }, { -x,  y, -z }, {  x,  y, -z }, {  x, -y, -z } },
-    { {  x, -y, -z }, {  x,  y, -z }, {  x,  y,  z }, {  x, -y,  z } },
-    { {  x, -y,  z }, {  x,  y,  z }, { -x,  y,  z }, { -x, -y,  z } },
-    { { -x, -y,  z }, { -x,  y,  z }, { -x,  y, -z }, { -x, -y, -z } },
+    { {  x, -y, -z }, { -x, -y, -z }, { -x,  y, -z }, {  x,  y, -z } },
+    { {  x, -y,  z }, {  x, -y, -z }, {  x,  y, -z }, {  x,  y,  z } },
+    { { -x, -y,  z }, {  x, -y,  z }, {  x,  y,  z }, { -x,  y,  z } },
+    { { -x, -y, -z }, { -x, -y,  z }, { -x,  y,  z }, { -x,  y, -z } },
     { { -x,  y,  z }, {  x,  y,  z }, {  x,  y, -z }, { -x,  y, -z } },
   };
 
