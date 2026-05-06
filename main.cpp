@@ -107,7 +107,6 @@ static void init(void)
   /* 光源の初期設定 */
   glEnable(GL_LIGHTING);
   glEnable(GL_LIGHT0);
-  glLightfv(GL_LIGHT0, GL_POSITION, lightpos);
   glLightfv(GL_LIGHT0, GL_DIFFUSE, lightcol);
   glLightfv(GL_LIGHT0, GL_SPECULAR, lightcol);
   glLightfv(GL_LIGHT0, GL_AMBIENT, lightamb);
