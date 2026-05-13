@@ -1,4 +1,5 @@
 ﻿#pragma once
+#define TRACKBALL_H
 
 /*
 ** 簡易トラックボール処理
