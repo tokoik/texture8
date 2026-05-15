@@ -19,51 +19,44 @@
 ### 2.1 Windows (Visual Studio 2022 の場合)
 
 1. コマンドプロンプトまたは PowerShell を開き、このプロジェクトのディレクトリに移動します。
-
 2. 以下のコマンドを実行してビルドディレクトリを作成し、CMake で構成を行います。
 
-```bat
-mkdir build
-cd build
-cmake .. -G "Visual Studio 17 2022"
-```
+   ```bat
+   mkdir build
+   cd build
+   cmake .. -G "Visual Studio 17 2022"
+   ```
 
 3. 生成された build フォルダ内の texture8.sln を Visual Studio で開きます。
-
 4. ソリューションエクスプローラーで texture8 プロジェクトを右クリックし、「スタートアップ プロジェクトに設定」を選択します。
-
 5. 「ローカル Windows デバッガー」をクリックするか、F5 キーを押してビルドおよび実行します。
 
 ### 2.2 macOS (Xcode の場合)
 
 1. ターミナルを開き、このプロジェクトのディレクトリに移動します。
-
 2. 以下のコマンドを実行してビルドディレクトリを作成し、Xcode 用のプロジェクトを生成します。
 
-```sh
-mkdir build
-cd build
-cmake .. -G Xcode
-```
+   ```sh
+   mkdir build
+   cd build
+   cmake .. -G Xcode
+   ```
 
 3. 生成された build/texture8.xcodeproj を Xcode で開きます。
-
 4. 左上のスキーム選択（再生ボタンの横）が texture8 になっていることを確認します。
-
 5. 「Run」ボタン（再生ボタン）をクリックするか、Command + R を押してビルドおよび実行します。
 
 ### 2.3 Ubuntu Linux
 
 1. ターミナルを開き、このプロジェクトのディレクトリに移動します。
-
 2. 必要なパッケージ（freeglut3-dev や pkg-config など）がインストールされていることを確認し、以下のコマンドでビルドします。
 
-```sh
-mkdir build
-cd build
-cmake ..
-make
-```
+   ```sh
+   mkdir build
+   cd build
+   cmake ..
+   make
+   ```
 
 ## 3. 使い方
 
@@ -73,31 +66,35 @@ make
 
 - **Windows**
 
-Visual Studio 上で「ローカル Windows デバッガー」をクリックして実行するか、またはコマンドプロンプトから以下のコマンドで起動します。
+  Visual Studio 上で「ローカル Windows デバッガー」をクリックして実行するか、またはコマンドプロンプトから以下のコマンドで起動します。
 
-```cmd
-cd build\Debug
-texture8.exe
-```
+  ```cmd
+  cd build\Debug
+  texture8.exe
+  ```
 
 - **macOS**
 
-Xcode 上で左上の「Run（再生ボタン）」をクリックするのが楽です。これにより texture8.app アプリケーションバンドルとして自動的に実行されます。アプリケーションバンドルを直接起動するなら、Finder から build/Debug/texture8.app をダブルクリックするか、ターミナルから open build/Debug/texture8.app を実行します (この場合はエラーメッセージ等が表示されません)。
+  Xcode 上で左上の「Run（再生ボタン）」をクリックするのが楽です。これにより texture8.app アプリケーションバンドルとして自動的に実行されます。アプリケーションバンドルを直接起動するなら、Finder から build/Debug/texture8.app をダブルクリックするか、ターミナルから open build/Debug/texture8.app を実行します (この場合はエラーメッセージ等が表示されません)。
 
 - **Ubuntu Linux**
 
-ターミナルから以下のコマンドで実行ファイル（バイナリ）を直接起動します。
+  ターミナルから以下のコマンドで実行ファイル（バイナリ）を直接起動します。
 
-```sh
-cd build
-./texture8
-```
+  ```sh
+  cd build
+  ./texture8
+  ```
 
 ### 3.2 操作方法
 
-- **マウスの左ボタンでドラッグ**: ティーポット表面に映り込んだ**周囲の情景（環境マップ）**をトラックボールのように回転させることができます。ティーポット自体は回転しません。
+- **マウスの左ボタンでドラッグ**
 
-- **キーボードの q, Q または ESC キー**: プログラムを終了します。
+  ティーポット表面に映り込んだ**周囲の情景（環境マップ）**をトラックボールのように回転させることができます。ティーポット自体は回転しません。
+
+- **キーボードの q, Q または ESC キー**
+
+  プログラムを終了します。
 
 ## 4. 解説
 
