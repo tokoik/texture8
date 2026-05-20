@@ -60,11 +60,11 @@ static void init()
 
   /* テクスチャの読み込みに使う配列 */
   GLubyte texture[TEXHEIGHT][TEXWIDTH][4];
-  FILE *fp;
 
   /* テクスチャ画像の読み込み */
   for (int i = 0; i < 6; ++i) {
-    if ((fp = fopen(texture_files[i], "rb")) != NULL) {
+    FILE* fp = fopen(texture_files[i], "rb");
+    if (fp != NULL) {
       fread(texture, sizeof texture, 1, fp);
       fclose(fp);
     }
